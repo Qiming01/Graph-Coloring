@@ -29,8 +29,8 @@ struct ConflictNodes {
 
 enum init_type
 {
-    random,
-    greedy,
+    RANDOM,
+    GREEDY,
     DSATUR,
 };
 
@@ -39,11 +39,11 @@ struct Solution {
     std::vector<int> colors;
     ConflictNodes    conflict_nodes_queue;
     explicit Solution(int node_num) : conflict_num(INT32_MAX), conflict_nodes_queue(node_num), colors(node_num) {}
-    Solution(const GraphColoring &gc, qm::RandomGenerator &rg, init_type type = init_type::random);
+    Solution(const GraphColoring &gc, qm::RandomGenerator &rg, init_type type = init_type::RANDOM);
     Solution &operator=(const Solution &other)     = default;
     Solution &operator=(Solution &&other) noexcept = default;
     Solution(const Solution &other)                = default;
-    void init(const GraphColoring &gc, qm::RandomGenerator &rg, init_type type = init_type::random);
+    void init(const GraphColoring &gc, qm::RandomGenerator &rg, init_type type = init_type::RANDOM);
 
     Solution(const GraphColoring &gc, const std::vector<int> &colors) : conflict_num(INT32_MAX), conflict_nodes_queue(gc.node_num), colors(colors) { calculate_conflicts(gc); }
 

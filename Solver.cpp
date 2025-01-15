@@ -35,7 +35,7 @@ void Solver::solve(long long int time_limit)
     std::vector<Solution> population(4, Solution(_gc.node_num));
     for (int i = 0; i < 4; i++)
     {
-        population[i].init(_gc, random_generator, init_type::greedy);
+        population[i].init(_gc, random_generator, init_type::GREEDY);
     }
     Solution                 best_solution  = population.at(0);
     uint64_t                 cycle          = 0;
@@ -108,7 +108,7 @@ void Solver::solve(long long int time_limit)
             population[3] = population[2];
 
             // elite1 <- newSolution
-            population[2].init(_gc, random_generator, init_type::random);
+            population[2].init(_gc, random_generator, init_type::RANDOM);
         }
         generation++;
 #ifdef AUTO_SAVE

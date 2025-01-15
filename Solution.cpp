@@ -232,11 +232,11 @@ void Solution::init(const GraphColoring &gc, qm::RandomGenerator &rg, init_type 
 {
     switch (type)
     {
-        case greedy: {
+        case GREEDY: {
             greedy_init(this, gc, rg);
             break;
         }
-        case random: {
+        case RANDOM: {
             for (int i = 0; i < gc.node_num; ++i)
             {
                 colors[i] = rg.rand(gc.color_num);
