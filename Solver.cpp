@@ -10,7 +10,7 @@
 #include <future>
 #include <iostream>
 
-#define MAX_ITER 140000
+#define MAX_ITER 80000
 
 void Solver::solve(long long int time_limit)
 {
